@@ -73,7 +73,6 @@ def gibbs_sampling(y, T, R, mu0, tau2, alpha, beta, alpha_theta, beta_theta, num
 
 # Creazione del DataFrame con i dati dei gruppi
 data = {
-    'Subject': [1, 2, 3, 4, 5, 6],
     'Group1': [68, 42, 69, 64, 39, 66, 29],
     'Group2': [49, 52, 41, 56, 40, 43, 20],
     'Group3': [41, 40, 26, 33, 42, 27, 35],
@@ -82,7 +81,7 @@ data = {
     'Group6': [30, 42, 35, 44, 49, 25, 45]
 }
 df = pd.DataFrame(data)
-y = df.iloc[:, 1:].values.T  # Trasposizione per ottenere gruppi come righe
+y = df.iloc[:, :].values.T  # Trasposizione per ottenere gruppi come righe
 
 # Parametri iniziali
 T = y.shape[0]  # Numero di gruppi
